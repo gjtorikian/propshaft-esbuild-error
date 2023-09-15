@@ -1,0 +1,27 @@
+{
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "esnext",
+    "lib": [
+      "ES2021",
+      "dom",
+      "dom.iterable"
+    ],
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "strict": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "types": [],
+    "noEmit": true
+  },
+  "include": [
+    "./app/javascript/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules"
+  ]
+}

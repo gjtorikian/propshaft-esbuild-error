@@ -1,0 +1,22 @@
+{
+    "dependencies": {
+        "@hotwired/stimulus": "^3.2.2",
+        "@hotwired/turbo-rails": "^7.3.0"
+    },
+    "devDependencies": {
+        "@tsconfig/recommended": "^1.0.1",
+        "esbuild": "^0.19.3",
+        "esbuild-rails": "^1.0.7",
+        "npm-run-all": "^4.1.5",
+        "tsc-watch": "^6.0.4",
+        "tslib": "^2.6.2",
+        "typescript": "^5.2.2"
+    },
+    "scripts": {
+        "tsc:build": "tsc -p tsconfig.json",
+        "compile:typescript": "tsc-watch --noClear -p tsconfig.json --onSuccess \"npm run build:js\" --onFailure \"npm run failure:js\"",
+        "build:js": "esbuild app/javascript/*.* --chunk-names=[name]-[hash].digested --splitting --format=esm --bundle --minify --sourcemap --outdir=app/assets/builds --public-path=/assets/",
+        "failure:js": "rm ./app/assets/builds/application.js && rm ./app/assets/builds/application.js.map",
+        "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=/assets"
+    }
+}

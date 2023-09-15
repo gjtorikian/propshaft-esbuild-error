@@ -6,8 +6,11 @@ ruby "3.2.1"
 gem "rails", "~> 7.1.0.beta1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem "propshaft"
+# gem "propshaft", git: "https://github.com/gjtorikian/propshaft", ref: "fix-missing-sourcemap-with-esbuild-public-path"
 
+# Bundle JS with esbuild [https://github.com/rails/jsbundling-rails]
+gem "jsbundling-rails", "~> 1.1"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
@@ -50,6 +53,8 @@ group :development, :test do
 end
 
 group :development do
+  gem "foreman", "~> 0.87"
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
